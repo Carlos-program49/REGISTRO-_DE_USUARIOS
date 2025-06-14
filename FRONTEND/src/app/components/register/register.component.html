@@ -1,0 +1,61 @@
+<div class="signup-card">
+
+  <!-- Mensaje de respuesta del servidor -->
+  <p *ngIf="msg">{{ msg }}</p>
+
+  <div class="card-title">
+    <h1>Create Account</h1>
+    <span>
+      Already have an account?
+      <a routerLink="/login">Sign In</a>
+    </span>
+  </div>
+
+  <form class="form-group" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+
+    <input type="text" placeholder="Name" formControlName="name" />
+    <div class="text-danger" *ngIf="signupForm.controls['name'].touched && signupForm.controls['name'].hasError('required')">
+      <span>This is required</span>
+    </div>
+
+    <input type="text" placeholder="Username" formControlName="username" />
+    <div class="text-danger" *ngIf="signupForm.controls['username'].touched && signupForm.controls['username'].hasError('required')">
+      <span>This is required</span>
+    </div>
+
+    <input type="password" placeholder="Password" formControlName="password" />
+    <div class="text-danger" *ngIf="signupForm.controls['password'].touched && signupForm.controls['password'].hasError('required')">
+      <span>This is required</span>
+    </div>
+
+    <input type="text" placeholder="Address" formControlName="address" />
+    <div class="text-danger" *ngIf="signupForm.controls['address'].touched && signupForm.controls['address'].hasError('required')">
+      <span>This is required</span>
+    </div>
+
+    <input type="text" placeholder="Mobile No" formControlName="mobileno" />
+    <div class="text-danger" *ngIf="signupForm.controls['mobileno'].touched && signupForm.controls['mobileno'].hasError('required')">
+      <span>This is required</span>
+    </div>
+
+    <input type="text" placeholder="Age" formControlName="age" />
+    <div class="text-danger" *ngIf="signupForm.controls['age'].touched && signupForm.controls['age'].hasError('required')">
+      <span>This is required</span>
+    </div>
+
+    <!-- Checkbox de términos -->
+    <div class="card-terms">
+      <input type="checkbox" id="terms" formControlName="terms" />
+      <label for="terms">
+        I have read and agree to the <a href="">Terms of Service</a>
+      </label>
+      <div class="text-danger" *ngIf="signupForm.controls['terms'].touched && signupForm.controls['terms'].hasError('requiredTrue')">
+        <span>You must accept the terms to continue.</span>
+      </div>
+    </div>
+
+    <!-- Botón habilitado sólo si el formulario es válido -->
+    <input type="submit" [disabled]="!signupForm.valid" value="Signup" />
+
+  </form>
+</div>
