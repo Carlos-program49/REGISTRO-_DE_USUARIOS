@@ -5,7 +5,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 class LoginExampleApplicationTests {
-//CLASE PRINCIPAL DE GIT
+//ESTE ES MI ULTIMO COMIT
 	@Test
 	void contextLoads() {
 	}
